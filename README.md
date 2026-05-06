@@ -10,7 +10,7 @@
 
 I'm an IT student at HUST with a strong passion for **AI Engineering** and **Machine Learning Systems**. I build end-to-end ML pipelines, agentic RAG applications, and backend services — turning ideas into working products fast.
 
-- 🔭 Currently building: agentic RAG systems, AI-powered video pipelines, and ML classification models
+- 🔭 Currently building: agentic RAG systems, AI-powered video pipelines, and NLP models
 - 🌱 Learning: Deep Learning, LLM application development, system optimization
 - 🏆 2nd Place — Provincial Science & Engineering Competition (Django hotel booking system)
 - 🏅 2nd & 3rd Place — Provincial Algorithmic Programming Competition
@@ -31,15 +31,15 @@ End-to-end pipeline that converts a text prompt into a YouTube Shorts video with
 
 `Python` `Gemini` `Groq` `Edge-TTS` `FFmpeg` `Crawl4AI` `rank-bm25` `Flask`
 
+### 🗣️ [PhoSenti — Vietnamese Sentiment Analysis](https://github.com/Matcry12/PhoSenti)
+Fine-tuned **PhoBERT** (VinAI) on the UIT-VSFC dataset (16,175 Vietnamese student feedback samples) for 3-class sentiment classification. Achieved **93.3% accuracy** and **0.84 macro F1-score** on 3,166 test examples. Served via a FastAPI endpoint with a web UI returning sentiment label, confidence score, and per-class probability scores.
+
+`Python` `PyTorch` `PhoBERT` `Hugging Face Transformers` `FastAPI`
+
 ### 🌿 [Plant Disease Classification (CNN + FastAPI)](https://github.com/Matcry12/Tomato-Disease-Classification)
 ResNet18 transfer learning model for tomato leaf disease detection across 10 classes. Achieved **98.8% accuracy** and **0.9867 macro F1-score** on 2400+ test images, served via a real-time FastAPI endpoint returning predicted class, confidence score, and top-3 predictions.
 
 `PyTorch` `ResNet18` `FastAPI` `Transfer Learning`
-
-### 🏠 [Vietnam Housing Price Prediction](https://github.com/Matcry12/Vietnam-Housing-Price-Prediction)
-Random Forest regression model for predicting Vietnamese housing prices, with full feature engineering, cross-validation tuning, and a FastAPI serving layer (pickle-serialized model). Identified and analyzed the generalization gap (R²: 0.90 train vs 0.61 test, MSE: 2.04).
-
-`Python` `Scikit-learn` `FastAPI` `Pandas`
 
 ### 🏨 [Tuyen Quang Explorer](https://github.com/Matcry12/Tuyen-Quang-Explorer)
 Full-stack hotel booking and management web application built with Django, featuring user authentication, hotel browsing, room booking, and review system. Designed database models for users, hotels, rooms, and bookings using MVC architecture. **Awarded 2nd Place at provincial-level competition.**
@@ -50,19 +50,21 @@ Full-stack hotel booking and management web application built with Django, featu
 
 ## 🛠️ Tech Stack
 
-**Languages:** Python · C++
+**Languages:** Python (OOP) · C++
 
-**Machine Learning:** RAG Systems · Hybrid Retrieval · Reranking · Embedding Models · Random Forest · XGBoost · Regression · Classification · Model Evaluation (Precision, Recall, F1, MSE)
+**NLP / LLM:** PhoBERT · Hugging Face Transformers · Embedding Models · Semantic Search · RAG Systems · Hybrid Retrieval · Reranking · LangGraph · LangChain
+
+**Machine Learning:** Classification · Regression · Random Forest · XGBoost · Model Evaluation (Precision, Recall, F1, MSE)
 
 **Deep Learning:** CNN · RNN · Transfer Learning · ResNet · EfficientNet · Cross-encoder Reranking
 
-**Libraries & Frameworks:** PyTorch · LangChain · LangGraph · Scikit-learn · Hugging Face Transformers · Pandas · NumPy · Matplotlib · Seaborn · Chroma · rank-bm25
+**Libraries:** PyTorch · Scikit-learn · Pandas · NumPy · Matplotlib · Seaborn · Chroma · rank-bm25
 
 **Backend & Deployment:** FastAPI · Django · Flask · Docker
 
 **Databases:** MySQL · SQLite
 
-**Tools:** Git · Jupyter Notebook · Docker
+**Tools:** Git · Jupyter Notebook
 
 ---
 
