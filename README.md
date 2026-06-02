@@ -27,9 +27,9 @@ An **agentic RAG system** built with LangGraph featuring a self-correcting loop 
 `Python` `FastAPI` `LangGraph` `Chroma` `Hugging Face` `Groq`
 
 ### 🎬 [Video Maker — AI Video Generation Pipeline](https://github.com/Matcry12/Video-Maker)
-End-to-end pipeline that converts a text prompt into a YouTube Shorts video with TTS, subtitles, images, and BGM. Designed a **3-stage RAG research pipeline** (web crawl → LLM extraction → dedup) achieving 67–100% research relevance. Optimized rendering **27.5× faster** (407s → 14.8s) by switching from FFmpeg N-overlay chain to PIL pre-compose, and eliminated TTS subtitle drift (43s → 0.000s) using Edge-TTS word boundaries.
+End-to-end system that turns a text prompt into a finished vertical video — TTS narration, word-timed subtitles, matched visuals, and BGM — across **two production pipelines** (scraped-image anime/lore Shorts and stock-footage psychology Shorts rendered via Remotion). Built a **3-stage RAG research pipeline** (web crawl → per-page LLM extraction → dedup) hitting 67–100% relevance, and a **SigLIP perceptual reranker** that scores stock clips frame-by-frame to match each script beat. Optimized rendering **27.5× faster** (407s → 14.8s) via PIL pre-compose over an FFmpeg N-overlay chain, and eliminated TTS subtitle drift (43s → 0.000s) using Edge-TTS word boundaries. LLM stages route across Groq/Gemini with automatic failover — zero hardcoded model names.
 
-`Python` `Gemini` `Groq` `Edge-TTS` `FFmpeg` `Crawl4AI` `rank-bm25` `Flask`
+`Python` `Groq` `Gemini` `SigLIP` `Remotion` `Kokoro-ONNX` `Edge-TTS` `FFmpeg` `Crawl4AI` `rank-bm25`
 
 ### 🗣️ [PhoSenti — Vietnamese Sentiment Analysis](https://github.com/Matcry12/PhoSenti)
 Fine-tuned **PhoBERT** (VinAI) on the UIT-VSFC dataset (16,175 Vietnamese student feedback samples) for 3-class sentiment classification. Achieved **93.3% accuracy** and **0.84 macro F1-score** on 3,166 test examples. Served via a FastAPI endpoint with a web UI returning sentiment label, confidence score, and per-class probability scores.
