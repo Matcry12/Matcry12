@@ -1,48 +1,56 @@
 <h1 align="center">Hi there, I'm Triet 👋</h1>
 <p align="center">
-  <b>AI/ML Engineer in Progress · Backend Developer · Competitive Programmer</b><br/>
-  <i>Hanoi University of Science and Technology — IT-E7 (Global ICT) · Expected 2029</i>
+  <b>AI/ML Engineer · LLM Applications & Backend · Competitive Programmer</b><br/>
+  <i>I build end-to-end LLM systems — and rigorously benchmark them.</i><br/>
+  <sub>Hanoi University of Science and Technology — IT-E7 (Global ICT)</sub>
 </p>
 
 ---
 
 ## 🧠 About Me
 
-I'm an IT student at HUST with a strong passion for **AI Engineering** and **Machine Learning Systems**. I build end-to-end ML pipelines, agentic RAG applications, and backend services — turning ideas into working products fast.
+I'm an IT student at **HUST** focused on **AI Engineering** — I build end-to-end LLM applications (agentic RAG, multi-stage orchestration, transformer fine-tuning) and back them with **real evaluation**: public benchmarks, ablations, and honest failure analysis, not just demos.
 
-- 🔭 Currently building: agentic RAG systems, AI-powered video pipelines, and NLP models
-- 🌱 Learning: Deep Learning, LLM application development, system optimization
-- 🏆 2nd Place — Provincial Science & Engineering Competition (Django hotel booking system)
+- 🔴 **Live demo:** [Rabbook — Agentic RAG](https://huggingface.co/spaces/Matcry/Rabbook) — try it in your browser
+- 🧪 **What sets my work apart:** I measure it — e.g. benchmarking Rabbook on HotpotQA + SQuAD v2 with a human-calibrated LLM judge
+- 🌱 **Currently exploring:** multi-agent LLM systems and evaluation harnesses
+- 🏆 2nd Place — Provincial Science & Engineering Competition
 - 🏅 2nd & 3rd Place — Provincial Algorithmic Programming Competition
-- 📄 GPA: 3.4/4.0 (Term 1) | IELTS 6.0
-- 📚 Relevant Coursework: Machine Learning, Deep Learning, Data Structures & Algorithms, Linear Algebra, Probability, Calculus
+- 📄 GPA 3.4/4.0 · IELTS 6.0 · Coursework: ML, Deep Learning, DSA, Linear Algebra, Probability
 
 ---
 
 ## 🚀 Featured Projects
 
-### 📚 [Rabbook — Agentic RAG Application](https://github.com/Matcry12/Rabbook)
-An **agentic RAG system** built with LangGraph featuring a self-correcting loop that evaluates retrieval evidence, refines queries on weak grounding, and falls back to autonomous web research. Implements **self-expanding knowledge** — web findings are ingested back into the vector store for grounded answers over fresh internet data. Combines hybrid retrieval (Chroma + BM25) with Reciprocal Rank Fusion, cross-encoder reranking, citation validation, and an end-to-end evaluation suite.
+### 📚 [Rabbook — Agentic RAG System](https://github.com/Matcry12/Rabbook) · [🔴 Live Demo](https://huggingface.co/spaces/Matcry/Rabbook)
 
-`Python` `FastAPI` `LangGraph` `Chroma` `Hugging Face` `Groq`
+A production-style **agentic RAG** system: a real tool-use agent loop where the LLM selects tools each turn, plus a deterministic LangGraph variant with grounding gates that block low-evidence answers. A 7-stage retrieval pipeline combines hybrid dense (Chroma) + BM25, Reciprocal Rank Fusion, cross-encoder reranking, and context expansion, and a **self-expanding knowledge base** auto-embeds fetched web pages back into the vector store.
 
-### 🎬 [Video Maker — AI Video Generation Pipeline](https://github.com/Matcry12/Video-Maker)
-End-to-end system that turns a text prompt into a finished vertical video — TTS narration, word-timed subtitles, matched visuals, and BGM — across **two production pipelines** (scraped-image anime/lore Shorts and stock-footage psychology Shorts rendered via Remotion). Built a **3-stage RAG research pipeline** (web crawl → per-page LLM extraction → dedup) hitting 67–100% relevance, and a **SigLIP perceptual reranker** that scores stock clips frame-by-frame to match each script beat. Optimized rendering **27.5× faster** (407s → 14.8s) via PIL pre-compose over an FFmpeg N-overlay chain, and eliminated TTS subtitle drift (43s → 0.000s) using Edge-TTS word boundaries. LLM stages route across Groq/Gemini with automatic failover — zero hardcoded model names.
+**What sets it apart — it's measured.** Benchmarked on 100 public cases (multi-hop HotpotQA + unanswerable SQuAD v2) via a 3-layer eval suite with a human-calibrated LLM judge; diagnosed bottlenecks and raised multi-hop answer accuracy **64% → 71%** and gold-chunk retrieval **54% → 89%**, while halving hallucination (**~20% → ~10%**) — all on a free local 4.6B model at **$0 inference cost**. 57 mock-based unit tests, Dockerized.
 
-`Python` `Groq` `Gemini` `SigLIP` `Remotion` `Kokoro-ONNX` `Edge-TTS` `FFmpeg` `Crawl4AI` `rank-bm25`
+`Python` `FastAPI` `LangGraph` `LangChain` `ChromaDB` `rank-bm25` `Cross-Encoder` `Docker`
+
+### 🎬 [Video Maker — LLM-Orchestrated Generation Pipeline](https://github.com/Matcry12/Video-Maker)
+
+A multi-stage **LLM orchestration** pipeline (plan → research → script → quality gate → render) running end-to-end from a single prompt, with a quality gate that validates each stage before the next proceeds. Features **multi-provider routing** across Groq and Gemini — per-stage model selection with automatic failover/retry on rate limits and no hardcoded model names — a **multi-source RAG research stage** (Crawl4AI + SearXNG / DuckDuckGo / Wikipedia with per-page LLM extraction, BM25 scoring, dedup) reaching 67–100% passage relevance, and a **SigLIP** cross-modal reranker that matches visuals to each narration segment. *(Rendering layer optimized 27.5× via PIL pre-compose over FFmpeg.)*
+
+`Python` `Groq` `Gemini` `SigLIP` `Hugging Face` `Crawl4AI` `SearXNG` `rank-bm25` `FFmpeg`
 
 ### 🗣️ [PhoSenti — Vietnamese Sentiment Analysis](https://github.com/Matcry12/PhoSenti)
-Fine-tuned **PhoBERT** (VinAI) on the UIT-VSFC dataset (16,175 Vietnamese student feedback samples) for 3-class sentiment classification. Achieved **93.3% accuracy** and **0.84 macro F1-score** on 3,166 test examples. Served via a FastAPI endpoint with a web UI returning sentiment label, confidence score, and per-class probability scores.
+
+Fine-tuned **PhoBERT** on the UIT-VSFC dataset (16,175 Vietnamese student-feedback samples) for 3-class sentiment classification — **93.3% accuracy**, **0.84 macro F1** on 3,166 test examples. Served via a FastAPI endpoint with a web UI returning label, confidence, and per-class probabilities.
 
 `Python` `PyTorch` `PhoBERT` `Hugging Face Transformers` `FastAPI`
 
 ### 🌿 [Plant Disease Classification (CNN + FastAPI)](https://github.com/Matcry12/Tomato-Disease-Classification)
-ResNet18 transfer learning model for tomato leaf disease detection across 10 classes. Achieved **98.8% accuracy** and **0.9867 macro F1-score** on 2400+ test images, served via a real-time FastAPI endpoint returning predicted class, confidence score, and top-3 predictions.
+
+ResNet18 transfer-learning model for tomato-leaf disease detection (10 classes) — **98.8% accuracy**, **0.9867 macro F1** on 2,400+ test images. Real-time FastAPI inference returning predicted class, confidence, and top-3 predictions.
 
 `PyTorch` `ResNet18` `FastAPI` `Transfer Learning`
 
 ### 🏨 [Tuyen Quang Explorer](https://github.com/Matcry12/Tuyen-Quang-Explorer)
-Full-stack hotel booking and management web application built with Django, featuring user authentication, hotel browsing, room booking, and review system. Designed database models for users, hotels, rooms, and bookings using MVC architecture. **Awarded 2nd Place at provincial-level competition.**
+
+Full-stack hotel booking & management web app (Django, MVC) — user auth, hotel browsing, a full booking workflow, and reviews over models for users, hotels, rooms, and bookings. **2nd Place, provincial competition.**
 
 `Django` `Python` `MySQL`
 
@@ -52,19 +60,17 @@ Full-stack hotel booking and management web application built with Django, featu
 
 **Languages:** Python (OOP) · C++
 
-**NLP / LLM:** PhoBERT · Hugging Face Transformers · Embedding Models · Semantic Search · RAG Systems · Hybrid Retrieval · Reranking · LangGraph · LangChain
+**LLM / NLP:** RAG Systems · Agentic & Tool-Use Pipelines · LLM Orchestration · LangGraph · LangChain · Hybrid Retrieval · Reranking · Embeddings & Semantic Search · Transformer Fine-tuning (PhoBERT) · Structured Output
 
-**Machine Learning:** Classification · Regression · Random Forest · XGBoost · Model Evaluation (Precision, Recall, F1, MSE)
+**Evaluation:** RAGAS · LLM-as-Judge (human-calibrated) · Retrieval Metrics (Hit@k / Recall@k / MRR) · Ablation Studies · Benchmark Design
 
-**Deep Learning:** CNN · RNN · Transfer Learning · ResNet · EfficientNet · Cross-encoder Reranking
+**Machine / Deep Learning:** Classification · Regression · Random Forest · XGBoost · CNN · RNN · Transfer Learning · ResNet · EfficientNet · SigLIP · Cross-Encoders
 
-**Libraries:** PyTorch · Scikit-learn · Pandas · NumPy · Matplotlib · Seaborn · Chroma · rank-bm25
+**Backend & Deployment:** FastAPI · Django · Flask · Docker · Hugging Face Spaces
 
-**Backend & Deployment:** FastAPI · Django · Flask · Docker
+**Libraries:** PyTorch · Hugging Face Transformers · Scikit-learn · Pandas · NumPy · ChromaDB · rank-bm25
 
-**Databases:** MySQL · SQLite
-
-**Tools:** Git · Jupyter Notebook
+**Databases & Tools:** MySQL · SQLite · Git · Jupyter
 
 ---
 
