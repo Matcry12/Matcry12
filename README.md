@@ -16,7 +16,7 @@ I'm an IT student at **HUST** focused on **AI Engineering** — I build end-to-e
 - 🌱 **Currently exploring:** multi-agent LLM systems and evaluation harnesses
 - 🏆 2nd Place — Provincial Science & Engineering Competition
 - 🏅 2nd & 3rd Place — Provincial Algorithmic Programming Competition
-- 📄 GPA 3.4/4.0 · IELTS 6.0 · Coursework: ML, Deep Learning, DSA, Linear Algebra, Probability
+- 📄 IELTS 6.0 · Coursework: ML, Deep Learning, DSA, Linear Algebra, Probability
 
 ---
 
